@@ -40,6 +40,7 @@ class NeRFSystem(LightningModule):
         self.embeddings = {'xyz': self.embedding_xyz,
                            'dir': self.embedding_dir}
 
+        ### 为什么这里会加3，这个有点不懂
         self.nerf_coarse = NeRF(in_channels_xyz=6*hparams.N_emb_xyz+3,
                                 in_channels_dir=6*hparams.N_emb_dir+3)
         self.models = {'coarse': self.nerf_coarse}
